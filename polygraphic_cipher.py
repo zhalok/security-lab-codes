@@ -1,5 +1,5 @@
 tabble = {
-    "0011": ["00", "11"],
+    "0011": ["00", "00"],
     "0100": ["00", "01"],
     "1111": ["00", "10"],
     "0001": ["00", "11"],
@@ -61,15 +61,16 @@ def decrypt(cipher_text):
         bin_val = hex_to_bin_conv(val)
         row = tabble[bin_val][0]
         col = tabble[bin_val][1]
-        # print(type(row))
+
         plain = row + col
-        # print(type(plain))
+
         plain_val = bin_to_hex_conv(plain)
         plain_text += str(hex_remap(plain_val))
 
     return plain_text
 
 
-cipher_text = "77ba"
-plain_text = decrypt(cipher_text)
-print(plain_text)
+while True:
+    cipher_text = input("Provide the cipher text: ")
+    plain_text = decrypt(cipher_text)
+    print(plain_text)
